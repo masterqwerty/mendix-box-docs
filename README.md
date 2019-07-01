@@ -152,6 +152,8 @@ In order to be authorized to request a JWT, you have to have your application ap
 
 **Important** When you use the enterprise ID, the box application gets it own "account," meaning that when you first make API calls, it will tell you that you don't have any files or folders, simply because it's as though you created a new box account. So the files and folders created through the API this way can only be accessed through the API.
 
+Another thing to note is that you need the `Manage users` permissions on your box application in order to use the user ID. This needs to be a permission before you get your application approved by your enterprise admin, or you'll need to get it re-approved.
+
 ## Executing Deeplink
 
 _This is only necessary if you're using Standard OAuth 2.0_
