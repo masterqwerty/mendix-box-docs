@@ -24,13 +24,17 @@ This microflow takes a file ID and folder ID and copies the respective file to t
 ![](../../res/file/copy-file/01-entity.png)
 
 2) Create a `BoxFolder` object that has its `_id` attribute set to the folder ID that was passed in.
+
 ![](../../res/file/copy-file/02-create-object.png)
 
 3) Create a `BoxFile` object that has its `_id` attribute set to the file ID that was passed in.
+
 ![](../../res/file/copy-file/03-create-object.png)
 
 4) Use the `Copy file` activity from the box connector module to then copy the file. Pass in all the parameters we just created.
+
 ![](../../res/file/copy-file/04-copy-file.png)
 
 5) You can also create an exclusive split that checks to see whether the file was copied. Give it an expression like `$CopiedFile != empty`.
+
 ![](../../res/file/copy-file/05-exclusive-split.png)
