@@ -2,6 +2,8 @@
 
 The documentation that's given for the box connector is two years old, so some adjustments have to be made. There's also the possiblity that since the Box connector module was last updated in March 2017, that it won't work properly due to the fact that it's dependencies have been updated very recently, but here are my findings thus far.
 
+I've also included some examples of how to use the Box API with microflows in the `api-examples` folder.
+
 **Note** The codefiles in `src` don't all necessarily work. I've just been experimenting with them.
 
 ## Configuring DeepLink
