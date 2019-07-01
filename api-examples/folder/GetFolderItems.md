@@ -15,12 +15,13 @@ This will return a list of `BoxItem` entities that are found inside the given fo
 
 ## Microflow Example
 
-![](../../res/folder/get-folder-items/get-folder-items.png)
+![](../../res/folder/get-folder-items/microflow.png)
 
 In this example I get a list of all the items in a certain folder and print them in a system message. Here's how each of the activities and the like are configured:
 
 1) Pass in a `BoxFolder` entity from a page that prompts the user for the id of the desired folder.
 2) _Optional_ Use the `Get folder info` action to get the name of the folder based off of the `_id` attribute of the `BoxFolder` entity that got passed in.
+![](../../res/folder/get-folder-items/01-get-folder-info.png)
 3) Create a `BoxItemFields` entity and set its value to `BoxConnector.BoxItemField.name`.
 4) Create a list of `BoxItemFields` entities.
 5) Add the previously created `BoxItemFields` entity to that list.
