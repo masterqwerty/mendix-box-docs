@@ -17,11 +17,11 @@ This will return a list of `BoxItem` entities that are found inside the given fo
 
 ![](../../res/folder/get-folder-items/microflow.png)
 
-In this example I get a list of all the items in a certain folder and print them in a system message. Here's how each of the activities and the like are configured:
+In this example I get a list of all the items in a certain folder and print them in a system message. Here's how each part is configured:
 
 1) Pass in a `BoxFolder` entity from a page that prompts the user for the id of the desired folder.
 
-2) _Optional_ Use the `Get folder info` action to get the name of the folder based off of the `_id` attribute of the `BoxFolder` entity that got passed in.
+2) _Optional_ Use the `Get folder info` activity to get the name of the folder based off of the `_id` attribute of the `BoxFolder` entity that got passed in.
 ![](../../res/folder/get-folder-items/02-get-folder-info.png)
 
 3) Create a `BoxItemFields` entity and set its value to `BoxConnector.BoxItemField.name`.
@@ -32,7 +32,7 @@ In this example I get a list of all the items in a certain folder and print them
 5) Add the previously created `BoxItemFields` entity to that list.
 ![](../../res/folder/get-folder-items/05-add-to-list.png)
 
-6) Call the `Get folder items` action and pass in the `BoxItemFields` list we just created, the `BoxFolder` entity from the parameter, and set the desired numbers for `Limit` and `Offset`.
+6) Call the `Get folder items` activity and pass in the `BoxItemFields` list we just created, the `BoxFolder` entity from the parameter, and set the desired numbers for `Limit` and `Offset`.
 ![](../../res/folder/get-folder-items/06-get-folder-items.png)
 
 7) Create a string variable that's initialized to an empty string. This is the string that will be used for the system message.
@@ -42,7 +42,7 @@ In this example I get a list of all the items in a certain folder and print them
 ![](../../res/folder/get-folder-items/08-loop.png)
 ![](../../res/folder/get-folder-items/08-change-variable.png)
 
-9) Add an exclusive split that checks to see if the list of `BoxItem` entities actually has contents, so something like `$FinalOutput != ''` (`$FinalOutput` is the string we just created). Then if true, print the string we created, if not say that the folder was empty.
+9) Add an exclusive split that checks to see if the list of `BoxItem` entities actually has contents, so something like `$FinalOutput != ''`. Then if true, print the string we created, if not say that the folder was empty.
 ![](../../res/folder/get-folder-items/09-exclusive-split.png)
 ![](../../res/folder/get-folder-items/09-message-true.png)
 ![](../../res/folder/get-folder-items/09-message-false.png)
