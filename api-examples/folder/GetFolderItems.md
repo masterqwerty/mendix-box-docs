@@ -13,9 +13,9 @@ This action will get the items inside a specified folder.
 
 This will return a list of `BoxItem` entities that are found inside the given folder.
 
-## Microflow example
+## Microflow Example
 
-![](../../res/get-folder-items.png)
+![](../../res/folder/get-folder-items/get-folder-items.png)
 
 In this example I get a list of all the items in a certain folder and print them in a system message. Here's how each of the activities and the like are configured:
 
