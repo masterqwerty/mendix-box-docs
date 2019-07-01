@@ -1,6 +1,6 @@
 # Short Errors
 
-![](../../res/troubleshooting/short-error.png)
+![](../res/troubleshooting/short-error.png)
 
 I named this one short errors since these are the errors that appear in the console that are no more than two or three words long, which tell almost nothing. Each of these errors correspond to a specific HTTP error code that is returned when making the actual API call. These errors come from the `HandleRejectedMessage` microflow that is found under `BoxConnector > Implementation > Common`.
 
