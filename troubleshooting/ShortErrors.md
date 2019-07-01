@@ -22,7 +22,7 @@ This one corresponds to a 409 error. This may happen because the resource you ar
 
 ## Not Found error
 
-This one corresponds to a 404 error. This most likely means that the resource you are trying to access doesn't exist, or you passed in the wrong folder or file id.
+This one corresponds to a 404 error. This most likely means that the resource you are trying to access doesn't exist, or you passed in the wrong folder or file id. This may also be because the item you are trying to access may or may not be in the trash, depending on what file you're trying to access. This error also occurs if a preview cannot be generated.
 
 ## PreCondition Failed error
 
