@@ -164,6 +164,10 @@ This part is pretty easy. The box connector module comes with a microflow activi
 
 ### Example Microflows
 
+**File**
+
+* [Download File](api-examples/file/DownloadFile.md)
+
 **Folder**
 
 * [Get Folder Items](api-examples/folder/GetFolderItems.md)

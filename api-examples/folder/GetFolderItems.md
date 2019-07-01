@@ -1,6 +1,6 @@
 # Get Folder Items
 
-This action will get the items inside a specified folder.
+This microflow will get the items inside a specified folder and list the item names with their ids in a system message.
 
 ## Required Values
 
@@ -16,8 +16,6 @@ This will return a list of `BoxItem` entities that are found inside the given fo
 ## Microflow Example
 
 ![](../../res/folder/get-folder-items/microflow.png)
-
-In this example I get a list of all the items in a certain folder and print them in a system message. Here's how each part is configured:
 
 1) Pass in a `BoxFolder` entity from a page that prompts the user for the id of the desired folder.
 
