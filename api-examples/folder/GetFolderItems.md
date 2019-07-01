@@ -15,6 +15,8 @@ List of `BoxItem` objects that are found inside the given folder.
 
 ## Microflow Example
 
+This microflow will get all the folder items from a folder and list them in a system message.
+
 ![](../../res/folder/get-folder-items/microflow.png)
 
 1) Pass in a `BoxFolder` object from a page that prompts the user for the id of the desired folder.

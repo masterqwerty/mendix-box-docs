@@ -13,6 +13,8 @@ A `BoxDocument` object that contains the contents of the file you wish to downlo
 
 ## Microflow Example
 
+This microflow will download a file based on the file ID that is given.
+
 ![](../../res/file/download-file/microflow.png)
 
 1) Pass in a `BoxFile` object that has the `_id` attribute set to the ID of the file you wish to download.
