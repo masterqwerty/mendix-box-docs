@@ -23,4 +23,4 @@ In this example I get a list of all the items in a certain folder and print them
 6) Call the `Get folder items` action and pass in the `BoxItemFields` list we just created, the `BoxFolder` entity from the parameter, and set the desired numbers for `Limit` and `Offset`.
 7) Create a string variable that's initialized to an empty string. This is the string that will be used for the system message.
 8) Iterate over the list of `BoxItem` entities that the `Get folder items` activity returned. On every iteration, change the string to be the string concatenated with the name of the `BoxItem` entity and a newline.
-9) Add an exclusive split that checks to see if the list of `BoxItem` entities actually has contents, so something like `$BoxItemList != empty`. Then if true, print the string we created, if not say that the folder was empty.
+9) Add an exclusive split that checks to see if the list of `BoxItem` entities actually has contents, so something like `$FinalOutput != ''` (`$FinalOutput` is the string we just created). Then if true, print the string we created, if not say that the folder was empty.
