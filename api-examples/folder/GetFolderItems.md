@@ -11,5 +11,5 @@ This function will get a list of `BoxItem` entities that represent the individua
 
 ## Microflow example
 
-![](res/get-folder-items.png)
+![](../../res/get-folder-items.png)
 
