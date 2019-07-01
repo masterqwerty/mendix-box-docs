@@ -2,7 +2,7 @@
 
 This activity gets all the items inside a specified folder.
 
-## Required Values
+## Parameters
 
 * **Box folder param** - A `BoxFolder` object that specifies which folder you want the items of. When you create a `BoxFolder` object to pass into this microflow, make sure that the `_id` property is given.
 * **Limit** - An Integer/Long that specifies the limit of items you want the action to return.

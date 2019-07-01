@@ -2,7 +2,7 @@
 
 This activity will download a file based on the file ID that is given to it.
 
-## Required Values
+## Parameters
 
 * **Box file param** - A `BoxFile` object that represents the file you wish to download. Make sure that the `_id` attribute is set.
 * **Version** - The version of that file you want to download. Can be set to `empty` to get the latest version.
