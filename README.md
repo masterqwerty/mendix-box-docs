@@ -200,6 +200,7 @@ Here I've included examples on how to implement the various activities that come
 **Folder**
 
 * [Get Folder Items](api-examples/folder/GetFolderItems.md)
+* [Get Trashed Items](api-examples/folder/GetTrashedItems.md)
 
 ## Other tweaks
 
