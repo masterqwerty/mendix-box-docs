@@ -182,6 +182,8 @@ The reason why the microflow needs to be called as the default home action, is b
 
 This part is pretty easy. The box connector module comes with a microflow activity for most of the API calls listed in the documentation for Box's API. Simply build a microflow that uses these actions. You may need to do some digging in Box Connector's domain model to see what value some activities are looking for. For example, when you call the `Get Folder Items` activity, it asks for a `BoxFolder` object. In the Box API documentation, it states that the only required value is the folder id, so you can create a `BoxFolder` entity in your microflow, and then set the `_id` value to the appropriate id. That particular activity also asks for a few other things, but you get the idea. Unlike the rest of the module, figuring out the API calls is pretty straight-forward, since they coincide with the Box API documentation. (https://developer.box.com/reference)
 
+Under the hood, the only thing the provided java actions are doing is making API calls. If something seems broken, a good place to look is at the implementation microflows. Pretty much all of the provided java actions will call a microflow that comes with the module. These microflows are found under `BoxConnector > Implementation > API`, and then just look for the API call you're trying to make with the `Impl` suffix.
+
 ### Example Microflows
 
 Here I've included examples on how to implement the various activities that come with the box connector module. Some of them are broken as is, but I have provided fixes or workarounds for them.
