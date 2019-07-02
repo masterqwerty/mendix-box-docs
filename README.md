@@ -210,7 +210,7 @@ One thing that's not very nice about the way access tokens are managed in the bo
 * Add a `DateTime` attribute to the `AccessToken` entity in the box connector's domain model, and call it something like "expires" or "expires on"
 * Add a before commit event handler to the `AccessToken` entity, and create a newmicroflow.
 * In the newly created microflow, make sure that there is an `AccessToken`parameter. If you didn't create the microflow when selecting a microflow for the event handler before, it probably won't be there.
-* Add an activity that changes the `AccessToken` object. It will change the newattribute that you just created.
+* Add an activity that changes the `AccessToken` object. It will change the new attribute that you just created.
 * The activity should then set that new attribute to the following expression:
 ```
 addSeconds([%CurrentDateTime%], $AccessToken/expiresIn)
