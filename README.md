@@ -55,7 +55,23 @@ Again, the docs for creating a box application from the box connector docs is ou
 * Give your application a name. Bear in mind that the name must be globally unique.
 * It should then redirect you to the configuration menu of your application. If not, you can access it in the menu bar on the left.
 * Go down to `Add and Manage Public Keys`, and either add a public key or generate a key pair.
-* If you generate a key pair, it will download a JSON file. Make sure to keep that file, since it has your Enterprise ID that you will need for later.
+* If you generate a key pair, it will download a JSON file. Make sure to keep that file, since it has your Enterprise ID that you will need for later. It will look like this:
+
+```json
+
+{
+  "boxAppSettings": {
+    "clientID": "bcdef3456...",
+    "clientSecret": "abcdef1234...",
+    "appAuth": {
+      "publicKeyID": "abcd1234",
+      "privateKey": "-----BEGIN ENCRYPTED PRIVATE KEY----- ... -----END ENCRYPTED PRIVATE KEY-----\n",
+      "passphrase": "afc2345..."
+    }
+  },
+  "enterpriseID": "12345678"
+}
+```
 
 ### Adding the Application to Mendix
 
@@ -79,7 +95,7 @@ When adding an application that has OAuth 2.0 with JWT, you don't need the param
 * **Client id** - Same as Standard OAuth 2.0
 * **Client secret** - Same as Standard OAuth 2.0
 * **Jti** - This is a string that must be between 16 and 128 characters in length. It's used as a unique identifier for the JWT. I used the python function `secrets.token_hex(64)` to generate this.
-* **Public Key** - This is actually supposed to be the unencrypted private key in PEM format. You can get the unencrypted key by copying the private key from the config.json file to an empty file, and then running the bash command `openssl pkey -in private.key`, replacing `private.key` for the name of the pem formatted file you just created. The command will prompt you for a passphrase, which is the passphrase in the same config.json file. It will then print the unencrypted private key. **NOTE THAT STORING AN UNENCRYPTED PRIVATE KEY ON YOUR SITE IN NOT SECURE!**
+* **Public Key** - This is actually supposed to be the unencrypted private key in PEM format. You can get the unencrypted key by copying the private key from the config.json file to an empty file, and then running the bash command `openssl pkey -in private.key`, replacing `private.key` for the name of the pem formatted file you just created. The command will prompt you for a passphrase, which is the passphrase in the same config.json file. It will then print the unencrypted private key. **NOTE THAT STORING AN UNENCRYPTED PRIVATE KEY ON YOUR SITE IN NOT SECURE!** I'm currently working to find a way to have Mendix decrypt a private key when you pass in a passphrase.
 * **Public Key ID** - Found under `Add and Manage Public Keys`.
 
 **Create a BoxAccount Entity (Both)**
