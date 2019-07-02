@@ -79,7 +79,7 @@ When adding an application that has OAuth 2.0 with JWT, you don't need the param
 * **Client id** - Same as Standard OAuth 2.0
 * **Client secret** - Same as Standard OAuth 2.0
 * **Jti** - This is a string that must be between 16 and 128 characters in length. It's used as a unique identifier for the JWT. I used the python function `secrets.token_hex(64)` to generate this.
-* **Public Key** - This is actually supposed to be the unencrypted private key in PEM format. You can get the unencrypted key by copying the private key from the config.json file to an empty file, and then running the bash command `openssl pkey -in private.key`, replacing `private.key` for the name of the pem formatted file you just created. The command will prompt you for a passphrase, which is the passphrase in the same config.json file. It will then print the unencrypted private key.
+* **Public Key** - This is actually supposed to be the unencrypted private key in PEM format. You can get the unencrypted key by copying the private key from the config.json file to an empty file, and then running the bash command `openssl pkey -in private.key`, replacing `private.key` for the name of the pem formatted file you just created. The command will prompt you for a passphrase, which is the passphrase in the same config.json file. It will then print the unencrypted private key. **NOTE THAT STORING AN UNENCRYPTED PRIVATE KEY ON YOUR SITE IN NOT SECURE!**
 * **Public Key ID** - Found under `Add and Manage Public Keys`.
 
 **Create a BoxAccount Entity (Both)**
@@ -180,12 +180,6 @@ This part is pretty easy. The box connector module comes with a microflow activi
 **Folder**
 
 * [Get Folder Items](api-examples/folder/GetFolderItems.md)
-
-## Some fallbacks
-
-* This may not be the most effective way to handle your files since there is a good amount of tweaking that has to happen.
-
-* There needs to be a good way of checking whether an access token is still valid so that there isn't a request made for an access token every time someone uploads a file.
 
 ## Other tweaks
 
