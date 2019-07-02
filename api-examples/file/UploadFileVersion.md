@@ -16,6 +16,12 @@ The variable `AccessTokenParam` is an object that contains the access token, but
 
 Also, if you want feed back on whether the file was actually uploaded, you'll need to adjust some things in the actual implementation microflow of this API call. This microflow is found under `BoxConnector > Implementation > API > File > UploadFileVersionImpl`. This is because  Here's what you'll need to do:
 
+**Old Microflow**
+
+![](../../res/file/upload-file-version/old-microflow.png)
+
+**Adjusted Microflow**
+
 ![](../../res/file/upload-file-version/new-impl-microflow.png)
 
 1) After the error handler on the java action `UploadFileVersionCall`, add an exclusive split that checks to see if the error code 201.
