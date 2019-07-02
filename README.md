@@ -184,6 +184,8 @@ This part is pretty easy. The box connector module comes with a microflow activi
 
 ### Example Microflows
 
+Here I've included examples on how to implement the various activities that come with the box connector module. Some of them are broken as is, but I have provided fixes or workarounds for them.
+
 **File**
 
 * [Copy File](api-examples/file/CopyFile.md)
