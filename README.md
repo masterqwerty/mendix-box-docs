@@ -174,6 +174,7 @@ This part is pretty easy. The box connector module comes with a microflow activi
 * [Delete File](api-examples/file/DeleteFile.md)
 * [Download File](api-examples/file/DownloadFile.md)
 * [Upload File](api-examples/file/UploadFile.md)
+* [Upload File Version](api-examples/file/UploadFileVersion.md)
 * [View Versions](api-examples/file/ViewVersions.md)
 
 **Folder**
