@@ -86,4 +86,4 @@ Now we have a microflow that can retrieve an access token with a JWT.
 
 ## Return Value
 
-This microflow does not return a value.
+This microflow does not return a value. It creates an `AccessToken` attribute that gets passed to a page where you can save your access token.
