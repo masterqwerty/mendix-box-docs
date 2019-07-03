@@ -64,7 +64,10 @@ This microflow will build the JWT from scratch, and request an access token thro
 ![](../../res/authentication/get-token-service-account/10-post-request.png)
 ![](../../res/authentication/get-token-service-account/10-post-response.png)
 
-11) Close the current page with a close page activity.
+  * The Location under the `General` tab is set to `https://api.box.com/oauth2/token`. You can take advantage of the constant `@BoxConnector.BoxAPI_URL_OAuth2`, which has `https://api.box.com/oauth2` stored in it.
+  * The rest mapping for the POST response is found under `BoxConnector > Implementation > RestMappings > AccessToken_Import_Mapping`
+
+11) Close the current page with a close page activity. (This is assuming you used a page to pass in the parameters necssary for this microflow.)
 
 12) Add an exclusvie split that checks to see whether an `AccessToken` object was created, or in other words an access token was received from the Box API. Use an expression like `$AccessToken != empty`.
 
@@ -79,6 +82,7 @@ Now we have a microflow that can retrieve an access token with a JWT.
 ## Parameters
 
 * _Required_ **Client ID** - The client ID for your box application. This is an attribute in the `BoxApplication` object.
+* _Required_ **Client Secret** - The client secret for your box application. This is an attribute in the `BoxApplication` object.
 * _Required_ **Jti** - The Jti for your box application. This is an attribute in the `BoxApplication` object.
 * _Required_ **Private Key** - The unencrypted private key for your application. This may be stored in the `PublicKey` attribute of your `BoxApplication` object. Once more, **storing unencrypted private keys in your site is not secure.**
 * _Conditional_ **Enterprise ID** - The enterprise ID given in your `config.json` file. You need either an enterprise ID or user ID.
