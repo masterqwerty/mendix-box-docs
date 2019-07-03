@@ -110,59 +110,7 @@ Now that you've gone through the arduous process of adding your application to M
 
 **OAuth 2.0 with JWT**
 
-You will need to create your own microflow to authenticate using a JWT, since the microflow that's given doesn't create a valid JWT. To do this, you will need Mendix's JWT module. Configure it as shown below (I'll include specifics on certain activites below):
-
-![](res/box-auth-jwt-microflow.png)
-
-* `ServiceTokenParameters` is an entity I created to pass in the enterprise ID/user ID and `BoxApplication` object to the microflow. They are both needed. The enterprise ID is found in the config.json file. The user ID is found under the user's account settings.
-* Retrieve `BoxApplication` by association by `ServiceTokenParameters`.
-* Create new `JWT` (from JWT module) with following properties:
-  * `iss` - `$BoxApplication/ClientId`
-  * `sub` -
-  ```
-  if $ServiceTokenParameters/EnterpriseID != empty
-  then $ServiceTokenParameters/EnterpriseID
-  else $ServiceTokenParameters/UserID
-  ```
-  * `exp` - `[%EndOfCurrentMinute%]`
-  * `jti` - `$BoxApplication/Jti`
-* Create new `PublicClaimString` (from JWT module) with the following properties:
-  * `Claim` - `'box_sub_type'`
-  * `Value` - 
-  ```
-  if $ServiceTokenParameters/EnterpriseID != empty
-  then 'enterprise'
-  else 'user'
-  ```
-  * `JWT.Claim_JWT` - `$NewJWT`
-* Create new `Audience` (from JWT module) with the following properties:
-  * `aud` - `@BoxConnector.BoxAPI_URL_Oauth2 + '/token'`
-  * `JWT.Audience_JWT` - `$NewJWT`
-* Call java action `ConvertPEMtoDER` (from JWT module) with the following values:
-  * Pem key - `$BoxApplication/PublicKey` _Yes, it is supposed to be the Private Key, but the attribute name in the BoxConnector module is PublicKey_
-  * Key type - _Private
-  * Output file name - empty
-* Cast output object to `JWT.JWTRSAPrivateKey`
-* Add a `Generate JWT` activity with the following values:
-  * Jwt object - `$NewJWT`
-  * Secret - empty
-  * Algorithm - `RS256` or `RS384` or `RS512`
-  * Private key - `$PrivateKey`
-* Make a REST call
-  * General
-    * Method - POST
-    * Location - `{1}/token` _{1} is a parameter referencing_ `@BoxConnector.BoxAPI_URL_OAuth2`
-  * Request
-    * Template -
-    ```
-    grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&client_id={1}&client_secret={2}&assertion={3}
-    ```
-      * {1} is `$BoxApplication/ClientId`
-      * {2} is `$BoxApplication/ClientSecret`
-      * {3} is `$JWTAssertion`
-  * Response
-    * Response handling - Apply import mapping
-    * Mapping - Find `BoxConnector > Implementation > RestMappings > Authentication > AccessToken_Import_Mapping` _The rest will autofill_
+You will need to create your own microflow to authenticate using a JWT, since the microflow that's given doesn't create a valid JWT. To do this, you will need Mendix's JWT module. Configure it as shown [here](api-examples/authentication/GetTokenServiceAccount.md).
 
 In order to be authorized to request a JWT, you have to have your application approved by whoever the "enterprise admin" is. When I contacted them, I just needed to make sure I wasn't asking for too many permissions, and they needed the Client ID to approve it. So I needed to set the permissions under `Application Scopes` on the config menu, and then give them the Client ID under `OAuth 2.0 Credentials`.
 
