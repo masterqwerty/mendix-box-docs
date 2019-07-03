@@ -5,3 +5,10 @@ This activity is completely broken. The implementation isn't done correctly, sin
 ## New Microflow Implementation
 
 This microflow will build the JWT from scratch, and request an access token through the Box API.
+
+![](../../res/authentication/get-token-service-account/microflow.png)
+
+1) Find a way to pass in a UserID (String), EnterpriseID(String), and a `BoxApplication` object. I just created a non-persistable entity in the domain model that has the UserID and EnterpriseID as attributes, and an association to the `BoxApplication` entity in the box connector domain model.
+
+![](../../res/authentication/get-token-service-account/01-entity.png)
+
