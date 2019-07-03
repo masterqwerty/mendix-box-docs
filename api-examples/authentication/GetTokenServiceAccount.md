@@ -73,3 +73,17 @@ This microflow will build the JWT from scratch, and request an access token thro
 13) If no token was created, display an error message. Otherwise, pass the `AccessToken` object to the `AccessToken_Overview` page which is found under `BoxConnector > _USE ME > Authentication > UI Sample`
 
 ![](../../res/authentication/get-token-service-account/13-show-page.png)
+
+Now we have a microflow that can retrieve an access token with a JWT.
+
+## Parameters
+
+* _Required_ **Client ID** - The client ID for your box application. This is an attribute in the `BoxApplication` object.
+* _Required_ **Jti** - The Jti for your box application. This is an attribute in the `BoxApplication` object.
+* _Required_ **Private Key** - The unencrypted private key for your application. This may be stored in the `PublicKey` attribute of your `BoxApplication` object. Once more, **storing unencrypted private keys in your site is not secure.**
+* _Conditional_ **Enterprise ID** - The enterprise ID given in your `config.json` file. You need either an enterprise ID or user ID.
+* _Conditional_ **User ID** - The user ID you wish to run your application as. You need either an enterprise ID or user ID.
+
+## Return Value
+
+This microflow does not return a value.
