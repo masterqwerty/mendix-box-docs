@@ -188,6 +188,10 @@ Under the hood, the only thing the provided java actions are doing is making API
 
 Here I've included examples on how to implement the various activities that come with the box connector module. Some of them are broken as is, but I have provided fixes or workarounds for them.
 
+**Authentication**
+
+* [Get Token Service Account **BROKEN**](api-examples/authentication/GetTokenServiceAccount.md)
+
 **File**
 
 * [Copy File](api-examples/file/CopyFile.md)
