@@ -38,7 +38,7 @@ This microflow will build the JWT from scratch, and request an access token thro
 ![](../../res/authentication/get-token-service-account/05-create-object.png)
 
 6) Call the `ConvertPEMtoDER` java action. Then set the following values:
-  * Pem key - The unencrypted private key from the `BoxApplication` object. Note this may be stored in the `PublicKey` attribute. Also, I'm working on a way to decrypt an encrypted private key in Mendix.
+  * Pem key - The unencrypted private key from the `BoxApplication` object. Note this may be stored in the `PublicKey` attribute. Also, I'm working on a way to decrypt an encrypted private key in Mendix, **since storing unencrypted private keys in your site is not secure.**
   * Key type - `_Private`
   * Output file name - `empty`
 
